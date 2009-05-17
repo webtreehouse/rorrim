@@ -39,7 +39,7 @@ MIME_TYPES = {
     "text/plain" : ".txt",
     }
 
-USER_AGENT = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+USER_AGENT = "Mozilla/5.0 (compatible; rorrim; +http://github.com/webtreehouse/rorrim/tree/master)"
 
 logger = logging.getLogger("rorrim")
 
@@ -91,7 +91,7 @@ class Site:
             else:
                 logger.error("Mirroring has failed.")
         else:
-            logger.info("Unknown error has occured.")
+            logger.error("Unknown error has occured.")
 
     def worker(self):
         while True:
@@ -107,6 +107,8 @@ class Site:
                 logger.warning("Could not retrieve " + item.source + ". Got HTTP error code: " + str(e.code))
             except urllib2.URLError, e:
                 logger.warning("Could not retrieve " + item.source + ". Server didn't respond.")
+            except:
+				logger.error("Unhandled error while retrieving " + item.source + ".")
             finally:
                 self.queue.task_done()
 
@@ -207,6 +209,7 @@ class Asset:
             return False
 
     def get_page_title(self):
+		# not implemented yet
         pass
 
     def get_links(self):
