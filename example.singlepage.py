@@ -13,4 +13,4 @@ import urlparse
 import rorrim
 
 s = rorrim.Site(source="http://github.com/", destination="output")
-print "Output has been saved to", s.primary_destination
+print "Output has been saved to", s.home.destination

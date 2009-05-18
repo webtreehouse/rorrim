@@ -86,7 +86,7 @@ class Site:
 
 		if self.assets.has_key(source):
 			if self.assets[source].retrieved == True:
-				self.primary_destination = self.assets[source].destination
+				self.home = self.assets[source]
 				logger.info("Mirroring is complete.")
 			else:
 				logger.error("Mirroring has failed.")
@@ -209,8 +209,12 @@ class Asset:
 			return False
 
 	def get_page_title(self):
-		# not implemented yet
-		pass
+		title_tag = re.compile('<\s*title[^>]*>(?P<context>.*?)<\/title>', re.IGNORECASE | re.MULTILINE)
+		match = title_tag.search(self.data)
+		if match:
+			return match.group(1)
+		else:
+			return False
 
 	def get_links(self):
 		links = list()
