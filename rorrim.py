@@ -94,7 +94,7 @@ class Site:
 			logger.error("Unknown error has occured.")
 
 	def worker(self):
-		while True:
+		while not self.queue.empty():
 			item = self.queue.get()
 			logger.debug("Downloading " + item.source)
 			try:
