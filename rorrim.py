@@ -46,7 +46,7 @@ logger = logging.getLogger("rorrim")
 class Site:
     def __init__(self, source, destination, number_of_threads=5, time_out=20,
                  link_types=LINK_TYPES, mime_types=MIME_TYPES, user_agent=USER_AGENT,
-                 log_level=logging.DEBUG):
+                 log_level=logging.INFO):
 
         # setup logger config
         logging.basicConfig(level=log_level)
