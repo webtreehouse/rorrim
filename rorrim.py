@@ -34,7 +34,13 @@ MIME_TYPES = {
     "image/gif" : ".gif",
     "text/html" : ".html",
     "image/jpeg" : ".jpg",
+    "application/ecmascript" : ".js",
+    "application/javascript" : ".js",
     "application/x-javascript" : ".js",
+    "text/ecmascript" : ".js",
+    "text/javascript" : ".js",
+    "text/jscript" : ".js",
+    "text/vbscript" : ".js",
     "image/png" : ".png",
     "text/plain" : ".txt",
     }
